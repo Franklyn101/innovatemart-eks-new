@@ -1,0 +1,53 @@
+# Create .gitignore to prevent large file issues
+@"
+# Terraform files
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+"@ | Out-File -FilePath ".gitignore" -Encoding utf8
+
+
+.DS_Store
+*.tfvars
+.terraform
+*.tfstate*
+*.lock.hcl
+*.log
+.vscode
+reports
+env
+oss-output
+kubeconfig_*
+.idea
+node_modules
+dist
+.venv
+
+ort-build
+
+Chart.lock
+**/charts/*.tgz
+
+.nx/cache
+.nx/workspace-data
+
+screenshots
+# Devenv
+.devenv*
+devenv.local.nix
+
+# direnv
+.direnv
+
+.pre-commit-config.yaml
