@@ -1,14 +1,13 @@
- 
 variable "region" {
   description = "AWS region"
   type        = string
-    default     = "eu-north-1"
+  default     = "eu-north-1"
 }
 
 variable "cluster_name" {
   description = "EKS cluster name"
   type        = string
-   default     = "innovatemart-eks-new"
+  default     = "innovatemart-eks-new"
 }
 
 variable "vpc_cidr" {
