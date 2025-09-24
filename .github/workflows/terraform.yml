@@ -6,6 +6,11 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  TF_VAR_region: "eu-north-1"
+  TF_VAR_cluster_name: "innovatemart-eks-new"
+  TF_VAR_vpc_cidr: "10.0.0.0/16"
+
 permissions:
   contents: read
   pull-requests: write
@@ -34,16 +39,12 @@ jobs:
         run: terraform init
         working-directory: ./infrastructure/environments/prod
 
-      - name: Terraform Validate
-        run: terraform validate
-        working-directory: ./infrastructure/environments/prod
-
       - name: Terraform Plan
         if: github.event_name == 'pull_request'
-        run: terraform plan -var-file="terraform.tfvars"
+        run: terraform plan -no-color -input=false
         working-directory: ./infrastructure/environments/prod
 
       - name: Terraform Apply
         if: github.event_name == 'push'
-        run: terraform apply -auto-approve -var-file="terraform.tfvars"
+        run: terraform apply -auto-approve -input=false
         working-directory: ./infrastructure/environments/prod
