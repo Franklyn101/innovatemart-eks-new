@@ -3,7 +3,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.0.0"
 
-  name = "innovatemart-vpc"
+  name = "innovatemart-eks-new-vpc"
   cidr = var.vpc_cidr
 
   azs             = ["${var.region}a", "${var.region}b"]
